@@ -1,0 +1,19 @@
+---
+layout: default
+
+smoothstate:
+  duration: 0
+---
+<h1>Software</h1>
+<nav>
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}" class="block">
+          <h2 class="title">{{ post.title }}</h2>
+          <h3 class="subtitle">{{ post.subtitle }}</h3>
+        </a>
+      <li>
+    {% endfor %}
+  </ul>
+</nav>

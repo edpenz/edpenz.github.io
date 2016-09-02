@@ -4,17 +4,25 @@
   {% include head.html %}
 
   <body>
+    <div id="smoothstate-root" class="site-content">
 
-    {% include header.html %}
+      <div class="page-content layout-{{ page.layout }}">
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
+        <script type="text/javascript">
+          {% include smoothstate-page-config.js %}
+        </script>
+
+        {% include navigation.html %}
+
+        <main>
+          {{ content }}
+        </main>
+
       </div>
+
+      {% include footer.html %}
+
     </div>
-
-    {% include footer.html %}
-
   </body>
 
 </html>

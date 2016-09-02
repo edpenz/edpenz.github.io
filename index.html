@@ -1,23 +1,17 @@
 ---
-layout: default
+layout: landing
+
+smoothstate:
+  duration: 750
 ---
+<script type="text/javascript" async src="{{ "index.html.js" | prepend: site.baseurl }}"></script>
 
-<div class="home">
+<div class="site-title">edpe<span>.</span>nz</div>
 
-  <h1 class="page-heading">Posts</h1>
+<div class="subtitle">Personal website of Edward Peek</div>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<!-- <nav class="site-nav">
+  <a href="{{ "/profile" | prepend: site.baseurl }}"><span class="title">Profile<span></a>
+  <a href="{{ "/software/" | prepend: site.baseurl }}"><span class="title">Software<span></a>
+  <a href="{{ "/academia/" | prepend: site.baseurl }}"><span class="title">Academia<span></a>
+</nav> -->
