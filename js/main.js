@@ -41,6 +41,7 @@ $(function() {
   // Init smoothState with default options
   smoothStateRoot.smoothState({
     onStart: exitOptions,
-    onReady: enterOptions
+    onReady: enterOptions,
+    repeatDelay: 0
   });
 });

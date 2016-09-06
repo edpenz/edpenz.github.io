@@ -42,8 +42,9 @@ html, body, .site-content {
 }
 
 main {
-  width: 20 * $grid-unit;
   margin: auto;
+  margin-left: $nav-width + $site-margin;
+  margin-right: $site-margin;
   padding-top: 2 * $grid-unit;
   padding-bottom: $footer-height;
 }
@@ -83,6 +84,14 @@ nav.page-nav {
 
     font-size: 12pt;
     color: $text-color-light;
+
+    opacity: 0.0;
+    pointer-events: none;
+
+    .category-software & {
+      opacity: 1.0;
+      pointer-events: initial;
+    }
   }
 }
 

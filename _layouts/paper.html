@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+
+<h3>{{ page.source }} ({{ page.source-abbv }} {{ page.date | date: '%Y' }})</h3>
+<h3>{{ page.authors | join: ', ' }}</h3>
+
+{{ content }}

@@ -1,5 +1,6 @@
 ---
 layout: default
+category: software
 
 smoothstate:
   duration: 0
@@ -7,13 +8,13 @@ smoothstate:
 <h1>Software</h1>
 <nav>
   <ul>
-    {% for post in site.posts %}
+    {% for post in site.posts %} {% if post.category == 'software' %}
       <li>
         <a href="{{ post.url }}" class="block">
           <h2 class="title">{{ post.title }}</h2>
           <h3 class="subtitle">{{ post.subtitle }}</h3>
         </a>
       <li>
-    {% endfor %}
+    {% endif %} {% endfor %}
   </ul>
 </nav>

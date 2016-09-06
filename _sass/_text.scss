@@ -10,6 +10,11 @@ h1, h2, h3 {
   font-weight: normal;
 }
 
+p {
+  line-height: $base-line-height;
+  margin-bottom: $grid-unit;
+}
+
 /**
  * Sizes
  */
@@ -96,22 +101,22 @@ h3 {
 /**
  * Body text links
  */
-  a {
-    color: inherit;
-    text-decoration: none;
+a {
+  color: inherit;
+  text-decoration: none;
 
-    //transition: color 0.1s ease-out; // TODO Prevent animation on page load.
+  //transition: color 0.1s ease-out; // TODO Prevent animation on page load.
 
-    &:focus {
-     outline: none;
-    }
-
-    &:hover {
-     color: black;
-     text-decoration: underline;
-    }
-
+  &:focus {
+   outline: none;
   }
+
+  &:hover {
+   color: black;
+   text-decoration: underline;
+  }
+
+}
 
 
 

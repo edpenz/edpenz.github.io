@@ -1,0 +1,18 @@
+.layout-paper {
+
+  h1 {
+    margin-bottom: 0.5 * $grid-unit;
+
+    font-size: 32px;
+    line-height: 1.5 * $grid-unit;
+  }
+
+  h3 {
+    line-height: 1.5;
+
+    & + p {
+      margin-top: 24px;
+    }
+  }
+
+}
