@@ -1,0 +1,41 @@
+/**
+ * Styles that need to remain active even after all classes have been removed
+ */
+main {
+  transition: transform 400ms $ease-out-cubic, opacity 400ms $ease-out-cubic;
+}
+
+/**
+ * Animations to be run on page exit
+ */
+.anim-exit {
+
+  main {
+    transform: translateX(4 * $grid-unit);
+    opacity: 0.0;
+
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+
+    a:focus {
+        transform: translateX(-96px);
+        transition: transform 200ms linear;
+    }
+
+  }
+
+}
+
+
+
+/**
+ * Animations to be run on page entrance
+ */
+.anim-enter {
+
+  main {
+    transform: translateY(4 * $grid-unit);
+    opacity: 0.0;
+  }
+
+}

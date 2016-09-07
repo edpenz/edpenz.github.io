@@ -5,7 +5,7 @@ $(function() {
   var smoothStateRoot = $('#smoothstate-root');
 
   var exitOptions = {
-    duration: 300,
+    duration: 400,
     render: handlePageExit,
 
     class: 'anim-exit'
@@ -35,7 +35,7 @@ $(function() {
   }
 
   function setOptions($options, $config) {
-    $options.duration = $config.duration || 0;
+    $options.duration = $config.duration || 400;
   }
 
   // Init smoothState with default options

@@ -12,10 +12,10 @@ $(function() {
   var scaleX = toBounds.width / fromBounds.width;
   var scaleY = toBounds.height / fromBounds.height;
 
-  jss.set('.anim-exit .layout-landing', {
+  jss.set('.anim-exit .layout-landing main', {
     'transform': 'translateX('+translateX+'px)'
   });
-  jss.set('.anim-exit .layout-landing .site-title', {
+  jss.set('.anim-exit .layout-landing main .site-title', {
     'transform': 'translateY('+translateY+'px) scale('+scaleY+')'
   });
 });

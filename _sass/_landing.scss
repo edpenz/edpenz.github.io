@@ -1,63 +1,70 @@
 .layout-landing {
 
-  text-align: center;
-
-  main {
-    margin: auto;
-  }
-
-  /**
-   * Page-specific elements
-   */
-   main .site-title {
-     margin-top: 13 * $grid-unit;
-
-     font-size: 80px;
-   }
-
-  .subtitle {
-    margin-top: $grid-unit;
-
-    font-size: 18px;
-    font-family: 'Noto Sans', sans-serif;
-    color: #808080;
-  }
-
-  .site-nav {
-    margin-top: 2 * $grid-unit;
-
-    font-size: 18pt;
-
-    a {
-      margin-left: 1em;
-      margin-right: 1em;
-    }
-  }
-
   .page-nav {
     visibility: hidden;
   }
 
+  main {
+    margin: auto;
+    text-align: center;
 
+    /**
+     * Page-specific elements
+     */
+    .site-title {
+      margin-top: 13 * $grid-unit;
 
-  /**
-    * Page-exit animation
-    */
-  //transform: translateX(-???px); // Will be set by JS
-  transition: transform 600ms $ease-cubic;
-
-  .site-title {
-    //transform: translateY(-???px) scale(0.?); // Will be set by JS
-    transform-origin: left top;
-    transition: transform 600ms $ease-cubic 150ms;
-  }
-
-  .subtitle, .site-nav {
-    transition: opacity 300ms $ease-in-cubic;
-
-    .anim-exit & {
-      opacity: 0.0;
+      font-size: 80px;
     }
+
+    .subtitle {
+      margin-top: $grid-unit;
+
+      font-size: 18px;
+      font-family: 'Noto Sans', sans-serif;
+      color: #808080;
+    }
+
+    .site-nav {
+      margin-top: 2 * $grid-unit;
+
+      font-size: 18pt;
+
+      a {
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+    }
+
+
+
+    // Clear default animation
+    opacity: 1.0;
+
+    a:focus {
+      transform: none;
+    }
+
+    /**
+      * Page-exit animation
+      */
+    //transform: translateX(-???px); // Will be set by JS
+    transition: transform 600ms $ease-cubic;
+
+    .site-title {
+      //transform: translateY(-???px) scale(0.?); // Will be set by JS
+      transform-origin: left top;
+      transition: transform 600ms $ease-cubic 150ms;
+    }
+
+    .subtitle, .site-nav {
+      transition: opacity 300ms $ease-in-cubic;
+
+      .anim-exit & {
+        opacity: 0.0;
+      }
+    }
+
   }
 
 }
