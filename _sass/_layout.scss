@@ -86,11 +86,17 @@ nav.page-nav {
     color: $text-color-light;
 
     opacity: 0.0;
-    pointer-events: none;
+    visibility: hidden;
+
+    transition: opacity 200ms $ease-out-cubic;
 
     .category-software & {
       opacity: 1.0;
-      pointer-events: initial;
+      visibility: visible;
+    }
+
+    .anim-exit &, .anim-enter & {
+      opacity: 0.0;
     }
   }
 }
@@ -117,12 +123,33 @@ nav.page-nav.hidden {
 main nav li {
   margin-top: $grid-unit;
 
+  a {
+    display: block;
+  }
+
   h2 {
     line-height: $grid-unit;
   }
 
   h3 {
     line-height: $grid-unit;
+  }
+
+  img {
+    float: right;
+    height: 2 * $grid-unit;
+
+    opacity: 0.5;
+    filter: saturate(0);
+    -webkit-filter: saturate(0);
+
+    transition: opacity 300ms $ease-out-cubic;
+  }
+
+  a:hover img {
+    opacity: 1.0;
+    filter: none;
+    -webkit-filter: none;
   }
 }
 
