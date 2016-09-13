@@ -120,16 +120,16 @@ a {
  * Body text links
  */
 p a, span a {
-  border-bottom: solid 1px #ccc;
+  border-bottom: solid 2px #ccc;
 
   transition: border-color 300ms $ease-out-cubic;
 
   &:focus {
-   border-bottom: solid 1px #000;
+   border-bottom-color: #888;
   }
 
   &:hover {
-   border-bottom: solid 1px #000;
+   border-bottom-color: #000;
   }
 }
 
