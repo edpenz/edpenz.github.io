@@ -12,6 +12,10 @@
     position: relative;
     float: right;
 
+    img {
+      display: block;
+    }
+
     .background {
       position: absolute;
       bottom: 0;

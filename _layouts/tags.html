@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<h1>#{{ page.tag }}</h1>
+<nav>
+  <ul>
+    {% for post in site.posts %} {% if post.tags contains page.tag %}
+      <li>
+        <a href="{{ post.url }}" class="block">
+          {% if post.thumbnail %}<img src="{{ post.thumbnail }}" />{% endif %}
+          <h2 class="title">{{ post.title }}</h2>
+          <h3 class="subtitle">{{ post.subtitle }}</h3>
+        </a>
+      <li>
+    {% endif %} {% endfor %}
+  </ul>
+</nav>

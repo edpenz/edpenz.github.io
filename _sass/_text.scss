@@ -99,13 +99,12 @@ h3 {
 
 
 /**
- * Body text links
+ * Reset link styling
  */
 a {
-  color: inherit;
   text-decoration: none;
 
-  //transition: color 0.1s ease-out; // TODO Prevent animation on page load.
+  color: inherit;
 
   &:focus {
    outline: none;
@@ -113,12 +112,26 @@ a {
 
   &:hover {
    color: black;
-   text-decoration: underline;
   }
 
 }
 
+/**
+ * Body text links
+ */
+p a, span a {
+  border-bottom: solid 1px #ccc;
 
+  transition: border-color 300ms $ease-out-cubic;
+
+  &:focus {
+   border-bottom: solid 1px #000;
+  }
+
+  &:hover {
+   border-bottom: solid 1px #000;
+  }
+}
 
 /**
  * Major navigation links
@@ -126,6 +139,7 @@ a {
 nav a {
   display: inline-block;
   text-decoration: none !important;
+  opacity: 1.0;
 
   .title {
     display: inline;
