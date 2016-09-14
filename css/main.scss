@@ -3,33 +3,22 @@
 @charset "utf-8";
 
 // Our variables
-$base-font-family: "Noto Sans", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$text-family:       'Noto Sans', Helvetica, Arial, sans-serif;
+$title-family:      'Questrial', sans-serif;
 
-$text-color:       #333;
-$background-color: #f9f9f9;
-$brand-color:      #2a7ae2;
+$base-font-size:    16px;
+$small-font-size:   $base-font-size * 0.875;
 
-$grid-unit:        $base-font-size * $base-line-height;
+$base-line-height:  1.5;
+$grid-unit:         $base-font-size * $base-line-height;
 
-$text-color-dark:    #333;
-$text-color-medium:  #888;
-$text-color-light:   #bbb;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$text-color-dark:   #333;
+$text-color-medium: #888;
+$text-color-light:  #bbb;
 
 // Section sizes
-$site-width:        40 * $grid-unit;
-$site-margin:    2 * $grid-unit;
-
 $nav-width:         8 * $grid-unit;
-
-$content-width:     $site-width - $nav-width - 2 * $site-margin;
+$content-width:     28 * $grid-unit;
 
 $footer-height:     4 * $grid-unit;
 
@@ -38,6 +27,21 @@ $ease-cubic:        cubic-bezier(0.65, 0.05, 0.36, 1);
 $ease-in-cubic:     cubic-bezier(0.55, 0.06, 0.68, 0.19);
 $ease-out-cubic:    cubic-bezier(0.22, 0.61, 0.36, 1);
 
+// Screen size breakpoints
+$site-width-medium: 40 * $grid-unit;
+$site-width-large:  52 * $grid-unit;
+
+// @mixin when-small() {
+//   @media screen and (max-width: $site-width-medium) { @content; }
+// }
+
+@mixin when-medium() {
+  @media screen /*and (min-width: $site-width-medium)*/ and (max-width: $site-width-large) { @content; }
+}
+
+@mixin when-large() {
+  @media screen and (min-width: $site-width-large) { @content; }
+}
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)

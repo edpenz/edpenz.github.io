@@ -1,20 +1,8 @@
 /**
- * Site header
+ * Layout common to all pages
  */
-.site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
 
-    // Positioning context for the mobile navigation icon
-    position: relative;
-}
-
-
-
-/**
- * Ensure page conents can scale to viewport height
- */
+// Ensure the page-content block at least fills screen height
 html, body, .site-content {
   height: 100%;
 }
@@ -24,34 +12,35 @@ html, body, .site-content {
 }
 
 
-/**
- * Site footer
- */
-.site-footer {
-  height: $footer-height;
-  margin-top: -$footer-height;
+// Fix site width and centre when between screen-size breakpoints.
+.site-content {
+  margin: auto;
 
-  text-align: center;
-  line-height: $footer-height;
-
-  color: $text-color-medium;
+  @include when-medium() { width: $site-width-medium; }
+  @include when-large() { width: $site-width-large; }
 }
 
-.site-footer-reservation {
-  height: 6em;
-}
 
+// Main content block is centred if there's enough space, otherwise it fills the
+// space between the nav bar and right margin.
 main {
   margin: auto;
-  margin-left: $nav-width + $site-margin;
-  margin-right: $site-margin;
+
   padding-top: 2 * $grid-unit;
-  padding-bottom: $footer-height;
+
+  @include when-medium() {
+    margin-left: $nav-width + 2 * $grid-unit;
+    margin-right: 2 * $grid-unit;
+  }
+
+  @include when-large() {
+    margin-left: $nav-width + 4 * $grid-unit;
+    margin-right: $nav-width + 4 * $grid-unit;
+  }
 }
 
-/**
- * Main navigation
- */
+
+// Nav bar is simply fixed width and left aligned
 nav.page-nav {
   position: absolute;
   top: 2 * $grid-unit;
@@ -59,30 +48,35 @@ nav.page-nav {
   width: 8 * $grid-unit;
   text-align: right;
 
+  .site-title {
+    font-size: 1.5 * $grid-unit;
+  }
+
   ul {
     margin-top: 2 * $grid-unit;
-
-    width: 100%;
 
     list-style-type: none;
   }
 
-  .site-title {
-    font-size: 26pt;
-  }
-
   .site-nav li {
-    line-height: 1.5 * $grid-unit;
+    line-height: 1 * $grid-unit;
 
-    font-size: 16pt;
+    font-size: 1.25 * $base-font-size;
     font-family: 'Questrial', sans-serif;
     color: $text-color-medium;
+
+    // Ensure following block is grid-aligned
+    padding-bottom: 0.5 * $grid-unit;
+
+    &:last-child:nth-child(odd) {
+      padding-bottom: 0 * $grid-unit;
+    }
   }
 
   .page-tags li {
     line-height: 1 * $grid-unit;
 
-    font-size: 12pt;
+    font-size: $base-font-size;
     color: $text-color-light;
 
     opacity: 0.0;
@@ -99,6 +93,7 @@ nav.page-nav {
       opacity: 0.0;
     }
   }
+
 }
 
 nav.page-nav.hidden {
@@ -106,20 +101,28 @@ nav.page-nav.hidden {
 }
 
 
-/**
- * Page content
- */
-.site-content {
-  width: 960px;
+// Site footer sticks to lower of page content or screen edge
+.site-footer {
+  height: $footer-height;
+  margin-top: -$footer-height;
 
-  margin: auto;
+  text-align: center;
+  line-height: $footer-height;
+
+  color: $text-color-medium;
+}
+
+main {
+  padding-bottom: $footer-height;
 }
 
 
 
 /**
- * Post lists
+ * Common but not global styling rules
  */
+
+// Pages where the main content is a list of links
 main nav li {
   margin-top: $grid-unit;
 
@@ -132,7 +135,12 @@ main nav li {
   }
 
   h3 {
+    font-family: $text-family;
     line-height: $grid-unit;
+  }
+
+  a:hover h3 {
+    color: $text-color-dark;
   }
 
   img {
@@ -154,6 +162,19 @@ main nav li {
 }
 
 
-/**
- * Posts
- */
+// Spacing of tiles and subtitles to align with nav bar
+main h1+h2 {
+  margin-top: 0.5 * $grid-unit;
+  margin-bottom: 2 * $grid-unit;
+}
+
+
+// Block that floats within or outside main content margin depending on room
+main .float-right {
+  position: relative;
+  float: right;
+
+  @include when-large() {
+    margin-right: -$nav-width - 2 * $grid-unit;
+  }
+}
