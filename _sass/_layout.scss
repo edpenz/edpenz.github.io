@@ -7,6 +7,10 @@ html, body, .site-content {
   height: 100%;
 }
 
+body {
+  overflow-y: scroll;
+}
+
 .page-content {
   min-height: 100%;
 }

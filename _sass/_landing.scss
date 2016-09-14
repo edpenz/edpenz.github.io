@@ -49,7 +49,8 @@
       * Page-exit animation
       */
     //transform: translateX(-???px); // Will be set by JS
-    transition: transform 600ms $ease-cubic;
+    transition-duration: 600ms;
+    transition-timing-function: $ease-cubic;
 
     .site-title {
       //transform: translateY(-???px) scale(0.?); // Will be set by JS
@@ -63,6 +64,14 @@
       .anim-exit & {
         opacity: 0.0;
       }
+    }
+
+    /**
+      * Page-entrance animation
+      */
+    .anim-enter & {
+      transform: none;
+      opacity: 0.0;
     }
 
   }
