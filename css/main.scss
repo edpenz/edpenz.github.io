@@ -6,11 +6,13 @@
 $text-family:       'Noto Sans', Helvetica, Arial, sans-serif;
 $title-family:      'Questrial', sans-serif;
 
-$base-font-size:    16px;
+$base-font-size:    1rem;
 $small-font-size:   $base-font-size * 0.875;
 
 $base-line-height:  1.5;
 $grid-unit:         $base-font-size * $base-line-height;
+
+$background-color:  #f9f9f9;
 
 $text-color-dark:   #333;
 $text-color-medium: #888;
@@ -30,6 +32,8 @@ $ease-out-cubic:    cubic-bezier(0.22, 0.61, 0.36, 1);
 // Screen size breakpoints
 $site-width-medium: 40 * $grid-unit;
 $site-width-large:  52 * $grid-unit;
+
+$site-height-medium: 40 * $grid-unit;
 
 // @mixin when-small() {
 //   @media screen and (max-width: $site-width-medium) { @content; }
@@ -51,6 +55,7 @@ $site-width-large:  52 * $grid-unit;
         "text",
         "animation",
         "landing",
+        "about",
         "paper",
         "software"
 ;

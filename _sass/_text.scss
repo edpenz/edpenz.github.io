@@ -121,16 +121,16 @@ a {
  * Body text links
  */
 p a, span a {
-  border-bottom: solid 2px #ccc;
+  box-shadow: 0 -0px $background-color inset, 0 -2px #ccc inset;
 
-  transition: border-color 300ms $ease-out-cubic;
+  transition: box-shadow 300ms $ease-out-cubic;
 
   &:focus {
-   border-bottom-color: #888;
+    box-shadow: 0 -1px $background-color inset, 0 -3px #888 inset;
   }
 
   &:hover {
-   border-bottom-color: #000;
+    box-shadow: 0 -1px $background-color inset, 0 -3px #000 inset;
   }
 }
 

@@ -1,6 +1,4 @@
-/**
- * smoothState initialisation
- */
+// smoothState initialisation
 $(function() {
   var smoothStateRoot = $('#smoothstate-root');
 

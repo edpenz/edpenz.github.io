@@ -12,15 +12,22 @@
      * Page-specific elements
      */
     .site-title {
-      margin-top: 13 * $grid-unit;
+      // TODO Replace with exact vertical centring
+      margin-top: 6 * $grid-unit;
+      @media (min-height: 25 * $grid-unit) {
+        margin-top: 10 * $grid-unit;
+      }
+      @media (min-height: 38 * $grid-unit) {
+        margin-top: 13 * $grid-unit;
+      }
 
-      font-size: 80px;
+      font-size: 5 * $base-font-size;
     }
 
     .subtitle {
       margin-top: $grid-unit;
 
-      font-size: 18px;
+      font-size: 1.125 * $base-font-size;
       font-family: 'Noto Sans', sans-serif;
       color: #808080;
     }
@@ -28,7 +35,7 @@
     .site-nav {
       margin-top: 2 * $grid-unit;
 
-      font-size: 18pt;
+      font-size: 1.5 * $base-font-size;
 
       a {
         margin-left: 1em;

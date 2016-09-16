@@ -1,5 +1,8 @@
-$(function() {
-  // At page load adjust the exit animation to properly align the titles
+$(document).ready(replaceTitleExitAnimation);
+$(window).resize(replaceTitleExitAnimation);
+
+// Replaces title's generic slide-and-fade with a position tween
+function replaceTitleExitAnimation() {
   var fromElement = $('main .site-title')[0];
   var toElement = $('.page-nav .site-title')[0];
 
@@ -18,4 +21,4 @@ $(function() {
   jss.set('.anim-exit .layout-landing main .site-title', {
     'transform': 'translateY('+translateY+'px) scale('+scaleY+')'
   });
-});
+}

@@ -15,6 +15,10 @@ body {
   min-height: 100%;
 }
 
+//
+body {
+  background-color: $background-color;
+}
 
 // Fix site width and centre when between screen-size breakpoints.
 .site-content {
@@ -113,7 +117,11 @@ nav.page-nav.hidden {
   text-align: center;
   line-height: $footer-height;
 
-  color: $text-color-medium;
+  color: $text-color-light;
+
+  a {
+    color: $text-color-medium;
+  }
 }
 
 main {
@@ -152,10 +160,13 @@ main nav li {
     height: 2 * $grid-unit;
 
     opacity: 0.5;
-    filter: saturate(0);
     -webkit-filter: saturate(0);
+    filter: saturate(0);
 
-    transition: opacity 300ms $ease-out-cubic;
+    transition:
+      opacity 300ms $ease-out-cubic,
+      -webkit-filter 300ms $ease-out-cubic,
+      filter 300ms $ease-out-cubic;
   }
 
   a:hover img {
