@@ -28,6 +28,7 @@ $(function() {
     setOptions(enterOptions, smoothstatePageConfig);
 
     $('body').addClass('anim anim-enter');
+    window.scrollTo(0, 0);
     smoothStateRoot.smoothState().data('smoothState').restartCSSAnimations();
     $('body').removeClass('anim anim-enter');
   }

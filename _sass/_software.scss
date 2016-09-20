@@ -8,20 +8,78 @@
     margin-bottom: 2 * $grid-unit;
   }
 
-  .page-hero {
+  .aside {
+    @include when-small() {
+      margin-left: -1 * $grid-unit;
+      margin-right: -1 * $grid-unit;
+      margin-bottom: $grid-unit;
+
+      overflow: hidden;
+
+      background-color: black;
+      z-index: -2;
+    }
+  }
+
+  .hero > div {
+    position: relative;
+
+    @include when-small() {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: $grid-unit;
+      margin-bottom: $grid-unit;
+    }
+
     img {
       display: block;
     }
 
+    .foreground {
+      width: 100%;
+      height: 100%;
+    }
+
     .background {
       position: absolute;
-      bottom: 0;
 
       opacity: 0.5;
       pointer-events: none;
 
       z-index: -1;
+
+      @include when-small() {
+        opacity: 1.0;
+      }
     }
   }
 
+  @mixin hero-sizing($hero-width, $hero-height, $hero-left, $hero-bottom) {
+    > div {
+      width: $hero-width;
+      height: $hero-height;
+
+      > img.background {
+        left: -1 * $hero-left;
+        bottom: -1 * $hero-bottom;
+      }
+    }
+
+    @include when-not-small() {
+      margin-left: $hero-left;
+      margin-bottom: $hero-bottom;
+    }
+  }
+
+  .aside.hero-android {
+    @include hero-sizing(192px, 320px, 58px, 94px);
+  }
+
+  .aside.hero-pebble {
+    @include hero-sizing(144px, 168px, 101px, 170px);
+  }
+
+  .aside.hero-desktop {
+    @include hero-sizing(256px, 160px, 49px, 35px);
+  }
 }

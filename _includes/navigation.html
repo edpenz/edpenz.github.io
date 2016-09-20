@@ -2,28 +2,37 @@
 
     <div class="site-title">edpe<span>.</span>nz</div>
 
-    <ul class="site-nav">
-      <li><a href="{{ "/about" | prepend: site.baseurl }}"{% if page.url contains "/about" %} class="selected"{% endif %}><span class="title">About<span></a></li>
-      <li><a href="{{ "/software/" | prepend: site.baseurl }}"{% if page.url contains "/software/" %} class="selected"{% endif %}><span class="title">Software<span></a></li>
-      <li><a href="{{ "/academia/" | prepend: site.baseurl }}"{% if page.url contains "/academia/" %} class="selected"{% endif %}><span class="title">Academia<span></a></li>
-    </ul>
+    <input id="menu-toggle" type="checkbox" />
+    <label for="menu-toggle">
+      {% include menu.svg %}
+    </label>
 
-    <ul class="page-tags">
+    <div>
 
-      {% if page.tags %}
+      <ul class="site-nav">
+        <li><a href="{{ "/about" | prepend: site.baseurl }}"{% if page.url contains "/about" %} class="selected"{% endif %}><span class="title">About<span></a></li>
+        <li><a href="{{ "/software/" | prepend: site.baseurl }}"{% if page.url contains "/software/" %} class="selected"{% endif %}><span class="title">Software<span></a></li>
+        <li><a href="{{ "/academia/" | prepend: site.baseurl }}"{% if page.url contains "/academia/" %} class="selected"{% endif %}><span class="title">Academia<span></a></li>
+      </ul>
 
-        {% for tag in page.tags %}
-          <li><a href="{{ tag | replace: '/', '_' | prepend: "/tags/" | prepend: site.baseurl }}" class="selected"><span class="title">#{{ tag }}<span></a></li>
-        {% endfor %}
+      <ul class="page-tags">
 
-      {% else %}
+        {% if page.tags %}
 
-        {% for tag in site.data.tags %}
-          <li><a href="{{ tag | replace: '/', '_' | prepend: "/tags/" | prepend: site.baseurl }}"{%if tag == page.tag%} class="selected"{%endif%}><span class="title">#{{ tag }}<span></a></li>
-        {% endfor %}
+          {% for tag in page.tags %}
+            <li><a href="{{ tag | replace: '/', '_' | prepend: "/tags/" | prepend: site.baseurl }}" class="selected"><span class="title">#{{ tag }}<span></a></li>
+          {% endfor %}
 
-      {% endif %}
+        {% else %}
 
-    </ul>
+          {% for tag in site.data.tags %}
+            <li><a href="{{ tag | replace: '/', '_' | prepend: "/tags/" | prepend: site.baseurl }}"{%if tag == page.tag%} class="selected"{%endif%}><span class="title">#{{ tag }}<span></a></li>
+          {% endfor %}
+
+        {% endif %}
+
+      </ul>
+
+    </div>
 
 </nav>

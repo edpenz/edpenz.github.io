@@ -27,6 +27,10 @@ h1 {
   font-size: 3 * $grid-unit;
 
   color: $text-color-dark;
+
+  @include when-small() {
+    font-size: 2 * $grid-unit;
+  }
 }
 
 h2 {
@@ -90,6 +94,12 @@ h3 {
     text-align: right;
 
     pointer-events: none;
+
+    // @include when-small() {
+    //   position: static;
+    //   margin-left: 0;
+    //   width: auto;
+    // }
   }
 
   &::before, span {
@@ -138,7 +148,7 @@ p a, span a {
  * Major navigation links
  */
 nav a {
-  display: inline-block;
+  display: block;
   text-decoration: none !important;
   opacity: 1.0;
 

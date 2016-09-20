@@ -8,6 +8,7 @@ html, body, .site-content {
 }
 
 body {
+  overflow-x: hidden;
   overflow-y: scroll;
 }
 
@@ -35,6 +36,11 @@ main {
   margin: auto;
 
   padding-top: 2 * $grid-unit;
+  @include when-small {
+    padding-top: 3.5 * $grid-unit;
+    margin-left: $grid-unit;
+    margin-right: $grid-unit;
+  }
 
   @include when-medium() {
     margin-left: $nav-width + 2 * $grid-unit;
@@ -51,13 +57,31 @@ main {
 // Nav bar is simply fixed width and left aligned
 nav.page-nav {
   position: absolute;
-  top: 2 * $grid-unit;
 
+  top: 2 * $grid-unit;
   width: 8 * $grid-unit;
   text-align: right;
 
   .site-title {
     font-size: 1.5 * $grid-unit;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    display: none;
+    position: absolute;
+
+    width: 1.5 * $grid-unit;
+    height: 1.5 * $grid-unit;
+
+    top: $grid-unit;
+    right: $grid-unit;
+
+    cursor: pointer;
+    opacity: 0.3;
   }
 
   ul {
@@ -104,6 +128,50 @@ nav.page-nav {
 
 }
 
+// Override nav layout when on mobile
+@media screen and (max-width: $site-width-medium) { nav.page-nav {
+  position: fixed;
+  box-sizing: border-box;
+  z-index: 1;
+
+  top: 0;
+  width: 100%;
+  text-align: left;
+
+  padding: $grid-unit;
+  padding-left: 2 * $grid-unit;
+
+  background: $background-color;
+
+  label {
+    display: block;
+  }
+
+  input ~ div {
+    overflow: hidden;
+    height: 0;
+
+    transition: height 300ms $ease-out-cubic;
+  }
+
+  input:checked ~ div {
+    height: calc(100vh - #{3.5 * $grid-unit});
+  }
+
+  .anim-exit & input ~ div {
+    height: 0;
+  }
+
+  .site-nav li {
+    font-size: 1.5 * $base-font-size;
+    padding-bottom: 1 * $grid-unit;
+  }
+
+  .page-tags li {
+
+  }
+}}
+
 nav.page-nav.hidden {
   visibility: hidden;
 }
@@ -111,12 +179,18 @@ nav.page-nav.hidden {
 
 // Site footer sticks to lower of page content or screen edge
 .site-footer {
+  box-sizing: border-box;
+
   height: $footer-height;
   margin-top: -$footer-height;
 
-  text-align: center;
-  line-height: $footer-height;
+  padding-left: 2 * $grid-unit;
+  padding-right: 2 * $grid-unit;
+  padding-top: $footer-height / 2 - $grid-unit;
 
+  line-height: $grid-unit;
+
+  text-align: center;
   color: $text-color-light;
 
   a {
@@ -167,6 +241,10 @@ main nav li {
       opacity 300ms $ease-out-cubic,
       -webkit-filter 300ms $ease-out-cubic,
       filter 300ms $ease-out-cubic;
+
+    @include when-small() {
+      display: none;
+    }
   }
 
   a:hover img {
@@ -178,16 +256,24 @@ main nav li {
 
 
 // Spacing of tiles and subtitles to align with nav bar
-main h1+h2 {
+main > h1 + h2 {
   margin-top: 0.5 * $grid-unit;
-  margin-bottom: 2 * $grid-unit;
+}
+
+main > p:first-of-type, main > nav:first-of-type {
+  margin-top: 2 * $grid-unit;
 }
 
 
-// Block that floats within or outside main content margin depending on room
-main .float-right {
+// Extra info that inlines when small, and floats when there's enough space
+main > .aside {
   position: relative;
-  float: right;
+  display: block;
+
+  @include when-not-small() {
+    float: right;
+    clear: right;
+  }
 
   @include when-large() {
     margin-right: -$nav-width - 2 * $grid-unit;

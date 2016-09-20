@@ -35,12 +35,16 @@ $site-width-large:  52 * $grid-unit;
 
 $site-height-medium: 40 * $grid-unit;
 
-// @mixin when-small() {
-//   @media screen and (max-width: $site-width-medium) { @content; }
-// }
+@mixin when-small() {
+  @media screen and (max-width: $site-width-medium) { @content; }
+}
+
+@mixin when-not-small() {
+  @media screen and (min-width: $site-width-medium) { @content; }
+}
 
 @mixin when-medium() {
-  @media screen /*and (min-width: $site-width-medium)*/ and (max-width: $site-width-large) { @content; }
+  @media screen and (min-width: $site-width-medium) and (max-width: $site-width-large) { @content; }
 }
 
 @mixin when-large() {

@@ -8,38 +8,54 @@
     margin: auto;
     text-align: center;
 
-    /**
-     * Page-specific elements
-     */
-    .site-title {
-      // TODO Replace with exact vertical centring
-      margin-top: 6 * $grid-unit;
-      @media (min-height: 25 * $grid-unit) {
-        margin-top: 10 * $grid-unit;
-      }
-      @media (min-height: 38 * $grid-unit) {
-        margin-top: 13 * $grid-unit;
-      }
+    > div {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 30vh; // Not based on anything other than what looks nice.
+    }
 
+    .site-title {
       font-size: 5 * $base-font-size;
+
+      @include when-small() {
+        font-size: 3 * $base-font-size;
+      }
     }
 
     .subtitle {
       margin-top: $grid-unit;
-
       font-size: 1.125 * $base-font-size;
-      font-family: 'Noto Sans', sans-serif;
-      color: #808080;
+      line-height: $grid-unit;
+
+      color: $text-color-medium;
+
+      @include when-small() {
+        font-size: $base-font-size;
+      }
     }
 
     .site-nav {
       margin-top: 2 * $grid-unit;
 
       font-size: 1.5 * $base-font-size;
+      line-height: $grid-unit;
+
+      @include when-small() {
+        width: 7 * $grid-unit;
+        margin-left: auto;
+        margin-right: auto;
+
+        line-height: 2 * $grid-unit;
+        text-align: left;
+      }
 
       a {
-        margin-left: 1em;
-        margin-right: 1em;
+        @include when-not-small() {
+          margin-left: 1em;
+          margin-right: 1em;
+          display: inline-block;
+        }
       }
     }
 
