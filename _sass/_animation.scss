@@ -13,17 +13,10 @@ main {
 .anim-exit {
 
   main {
-    transform: translateX(4 * $grid-unit);
     opacity: 0.0;
 
-    transition-duration: 200ms;
-    transition-timing-function: linear;
-
-    a:focus {
-        transform: translateX(-96px);
-        transition: transform 200ms linear;
-    }
-
+    transition-duration: 300ms;
+    transition-timing-function: $ease-out-cubic;
   }
 
 }
