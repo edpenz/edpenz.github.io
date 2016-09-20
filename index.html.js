@@ -6,6 +6,8 @@ function replaceTitleExitAnimation() {
   var fromElement = $('main .site-title')[0];
   var toElement = $('.page-nav .site-title')[0];
 
+  if (!fromElement || !toElement) return;
+
   var fromBounds = fromElement.getBoundingClientRect();
   var toBounds = toElement.getBoundingClientRect();
 

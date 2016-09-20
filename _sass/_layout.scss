@@ -33,6 +33,7 @@ body {
 // Main content block is centred if there's enough space, otherwise it fills the
 // space between the nav bar and right margin.
 main {
+  display: block; // Fix for IE
   margin: auto;
 
   padding-top: 2 * $grid-unit;
