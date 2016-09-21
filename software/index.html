@@ -9,7 +9,7 @@ category: software
     {% for post in site.posts %} {% if post.category == 'software' %}
       <li>
         <a href="{{ post.url }}" class="block">
-          {% if post.thumbnail %}<img src="{{ post.thumbnail }}" />{% endif %}
+          {% if post.thumbnail %}<img src="{{ post.thumbnail }}" alt="" />{% endif %}
           <h2 class="title">{{ post.title }}</h2>
           <h3 class="subtitle">{{ post.subtitle }}</h3>
         </a>
