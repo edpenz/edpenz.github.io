@@ -25,7 +25,9 @@ body {
 .site-content {
   margin: auto;
 
-  @include when-medium() { width: $site-width-medium; }
+  width: $site-width-medium;
+
+  @include when-small() { width: auto; }
   @include when-large() { width: $site-width-large; }
 }
 
@@ -36,16 +38,14 @@ main {
   display: block; // Fix for IE
   margin: auto;
 
+  margin-left: $nav-width + 2 * $grid-unit;
+  margin-right: 2 * $grid-unit;
+
   padding-top: 2 * $grid-unit;
   @include when-small {
     padding-top: 3.5 * $grid-unit;
     margin-left: $grid-unit;
     margin-right: $grid-unit;
-  }
-
-  @include when-medium() {
-    margin-left: $nav-width + 2 * $grid-unit;
-    margin-right: 2 * $grid-unit;
   }
 
   @include when-large() {
@@ -271,9 +271,12 @@ main > .aside {
   position: relative;
   display: block;
 
-  @include when-not-small() {
-    float: right;
-    clear: right;
+  float: right;
+  clear: right;
+
+  @include when-small() {
+    float: none;
+    clear: none;
   }
 
   @include when-large() {

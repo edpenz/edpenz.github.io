@@ -1,74 +1,62 @@
 .layout-software {
 
-  h1 {
-    margin-bottom: 0.5 * $grid-unit;
-  }
-
-  h2 {
-    margin-bottom: 2 * $grid-unit;
-  }
-
-  .aside {
-    @include when-small() {
-      margin-left: -1 * $grid-unit;
-      margin-right: -1 * $grid-unit;
-      margin-bottom: $grid-unit;
-
-      overflow: hidden;
-
-      background-color: black;
-      z-index: -2;
-    }
-  }
-
-  .hero > div {
+  // Wrapper syncs the realtive size and position of foreground and backgound
+  .hero > .wrapper {
     position: relative;
 
-    @include when-small() {
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: $grid-unit;
-      margin-bottom: $grid-unit;
-    }
-
-    img {
-      display: block;
-    }
-
     .foreground {
+      display: block;
       width: 100%;
       height: 100%;
     }
 
     .background {
+      display: block;
       position: absolute;
 
       opacity: 0.5;
       pointer-events: none;
-
       z-index: -1;
-
-      @include when-small() {
-        opacity: 1.0;
-      }
     }
   }
 
-  @mixin hero-sizing($hero-width, $hero-height, $hero-left, $hero-bottom) {
-    > div {
+  // Hero becomes full bleed block when small
+  @include when-small() { .hero {
+    // Need to force due to frame margins being more specific
+    margin-left: -1 * $grid-unit !important;
+    margin-right: -1 * $grid-unit !important;
+    margin-bottom: $grid-unit !important;
+
+    overflow: hidden;
+    background-color: black;
+    z-index: -2; // Behind device frame
+
+    .wrapper > .background {
+      opacity: 1.0;
+    }
+
+    > .wrapper {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: $grid-unit;
+      margin-bottom: $grid-unit;
+    }
+  }}
+
+  // Sizing for specific device frames, done explicitly to avoid relayout on load
+  @mixin hero-sizing($hero-width, $hero-height, $frame-left, $frame-bottom) {
+    > .wrapper {
       width: $hero-width;
       height: $hero-height;
 
-      > img.background {
-        left: -1 * $hero-left;
-        bottom: -1 * $hero-bottom;
+      > .background {
+        left: -1 * $frame-left;
+        bottom: -1 * $frame-bottom;
       }
     }
 
-    @include when-not-small() {
-      margin-left: $hero-left;
-      margin-bottom: $hero-bottom;
-    }
+    margin-left: $frame-left;
+    margin-bottom: $frame-bottom;
   }
 
   .aside.hero-android {
@@ -82,4 +70,5 @@
   .aside.hero-desktop {
     @include hero-sizing(256px, 160px, 49px, 35px);
   }
+
 }

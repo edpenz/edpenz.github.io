@@ -51,10 +51,14 @@
       }
 
       a {
-        @include when-not-small() {
-          margin-left: 1em;
-          margin-right: 1em;
-          display: inline-block;
+        margin-left: 1em;
+        margin-right: 1em;
+        display: inline-block;
+
+        @include when-small() {
+          margin-left: 0;
+          margin-right: 0;
+          display: block;
         }
       }
     }

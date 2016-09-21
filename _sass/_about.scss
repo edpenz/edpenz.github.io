@@ -1,19 +1,12 @@
 .layout-about {
 
   .aside {
-    display: block;
+    margin-left: 2 * $grid-unit;
 
     @include when-small() {
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 0;
-    }
-
-    @include when-not-small(){
-      float: right;
-      clear: right;
-
-      margin-left: 2 * $grid-unit;
     }
 
   }
@@ -44,10 +37,8 @@
   div.aside {
     min-width: 10 * $grid-unit;
 
-    margin-top: 1 * $grid-unit;
-    @include when-not-small() {
-      margin-top: 1.5 * $grid-unit;
-    }
+    margin-top: 1.5 * $grid-unit;
+    @include when-small() { margin-top: 1 * $grid-unit; }
 
     // External links
     a {

@@ -33,18 +33,8 @@ $ease-out-cubic:    cubic-bezier(0.22, 0.61, 0.36, 1);
 $site-width-medium: 40 * $grid-unit;
 $site-width-large:  52 * $grid-unit;
 
-$site-height-medium: 40 * $grid-unit;
-
 @mixin when-small() {
   @media screen and (max-width: $site-width-medium) { @content; }
-}
-
-@mixin when-not-small() {
-  @media screen and (min-width: $site-width-medium) { @content; }
-}
-
-@mixin when-medium() {
-  @media screen and (min-width: $site-width-medium) and (max-width: $site-width-large) { @content; }
 }
 
 @mixin when-large() {
