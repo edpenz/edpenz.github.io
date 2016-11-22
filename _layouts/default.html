@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
-    <div id="smoothstate-root" class="site-content">
+<body class="no-js">
+  <script>document.body.classList.add("js");</script>
 
-      <div class="page-content layout-{{ page.layout }} category-{{ page.category }}">
+  <div id="smoothstate-root" class="site-content">
 
-        <script type="text/javascript">
-          {% include smoothstate-page-config.js %}
-        </script>
+    <div class="page-content layout-{{ page.layout }} category-{{ page.category }}">
 
-        {% include navigation.html %}
+      <script>
+        {% include smoothstate_page_config.js %}
+      </script>
 
-        <main>
-          {{ content }}
-        </main>
+      {% include navigation.html %}
 
-      </div>
-
-      {% include footer.html %}
+      <main>
+        {{ content }}
+      </main>
 
     </div>
-  </body>
+
+    {% include footer.html %}
+
+  </div>
+
+  {% include delay_load_scripts.html %}
+</body>
 
 </html>
