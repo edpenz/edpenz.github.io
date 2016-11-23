@@ -1,10 +1,10 @@
 ---
 layout: software
 category: software
-permalink: /software/:title
 
 title: Routine
 subtitle: Calendar focused Pebble watch face
+date: 2014-12-19
 
 tags:
   - android

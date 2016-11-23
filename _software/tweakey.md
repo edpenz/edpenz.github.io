@@ -1,10 +1,10 @@
 ---
 layout: software
 category: software
-permalink: /software/:title
 
 title: Tweakey
 subtitle: Customisable PC remote for Android
+date: 2016-08-30
 
 tags:
   - android

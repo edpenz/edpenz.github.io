@@ -6,6 +6,7 @@ permalink: /academia/:title
 title: Image warping for enhancing consumer applications of head-mounted displays
 source: Australasian User Interface Conference
 source-abbv: AUIC
+date: 2014-01-20
 authors:
   - Edward Peek
   - Burkhard Wünsche

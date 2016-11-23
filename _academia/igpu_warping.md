@@ -6,6 +6,7 @@ permalink: /academia/:title
 title: Using Integrated GPUs to Perform Image Warping for HMDs
 source: Image and Vision Computing New Zealand
 source-abbv: IVCNZ
+date: 2014-11-19
 authors:
   - Edward Peek
   - Burkhard Wünsche

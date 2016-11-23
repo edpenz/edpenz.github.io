@@ -1,10 +1,10 @@
 ---
 layout: software
 category: software
-permalink: /software/:title
 
 title: Solar
 subtitle: Daylight focused Pebble watchface
+date: 2014-02-14
 
 tags:
   - pebble

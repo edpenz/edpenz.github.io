@@ -6,6 +6,7 @@ permalink: /academia/:title
 title: 'Making 3D work: a classification of visual depth cues, 3D display technologies and their applications'
 source: Australasian User Interface Conference
 source-abbv: AUIC
+date: 2013-01-29
 authors:
   - Mostafa Mehrabi
   - Edward Peek

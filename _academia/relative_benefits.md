@@ -6,6 +6,7 @@ permalink: /academia/:title
 title: Determining the relative benefits of pairing virtual reality displays with applications
 source: Australasian User Interface Conference
 source-abbv: AUIC
+date: 2013-01-29
 authors:
   - Edward Peek
   - Burkhard Wünsche

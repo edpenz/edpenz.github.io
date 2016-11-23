@@ -6,7 +6,8 @@ category: academia
 <h2>Works published during my time in postgrad</h2>
 <nav>
   <ul>
-    {% for post in site.posts %} {% if post.category == 'academia' %}
+    {% assign posts = site.academia | sort: 'date' | reverse %}
+    {% for post in posts %} {% if post.category == 'academia' %}
       <li>
         <a href="{{ post.url }}" class="block">
           <h2 class="title">{{ post.title }}</h2>

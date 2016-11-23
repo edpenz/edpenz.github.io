@@ -1,10 +1,10 @@
 ---
 layout: software
 category: software
-permalink: /software/:title
 
 title: SCNC
 subtitle: Match scheduler for squash club nights
+date: 2014-03-08
 
 tags:
   - desktop

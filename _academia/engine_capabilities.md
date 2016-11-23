@@ -6,6 +6,7 @@ permalink: /academia/:title
 title: Virtual Reality Capabilities of Graphics Engines
 source: Winter School of Computer Graphics
 source-abbv: WSCG
+date: 2013-06-24
 authors:
   - Edward Peek
   - Burkhard Wünsche

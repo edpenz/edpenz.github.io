@@ -6,6 +6,7 @@ permalink: /academia/:title
 title: 'More for Less: Fast Image Warping for Improving the Appearance of Head Tracking on HMDs'
 source: Image and Vision Computing New Zealand
 source-abbv: IVCNZ
+date: 2013-11-02
 authors:
   - Edward Peek
   - Christof Lutteroth

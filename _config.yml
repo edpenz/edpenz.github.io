@@ -1,4 +1,4 @@
-# Site settings
+# Site metadata
 title: edpe.nz
 description: Profile and portfolio of Edward Peek
 
@@ -7,5 +7,14 @@ baseurl: ""
 
 email: edwardpeek@gmail.com
 
-# Build settings
+# Build config
 markdown: kramdown
+
+collections:
+  software:
+    output: true
+    permalink: /software/:path
+
+  academia:
+    output: true
+    permalink: /academia/:path

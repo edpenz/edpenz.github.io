@@ -6,6 +6,7 @@ permalink: /academia/:title
 title: Enhancing 3D Applications Using Stereoscopic 3D and Motion Parallax
 source: Australasian User Interface Conference
 source-abbv: AUIC
+date: 2012-01-30
 authors:
   - Ivan Li
   - Edward Peek

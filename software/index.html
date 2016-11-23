@@ -6,7 +6,8 @@ category: software
 <h2>A selection of my personal projects, apps and experiments</h2>
 <nav>
   <ul>
-    {% for post in site.posts %} {% if post.category == 'software' %}
+    {% assign posts = site.software | sort: 'date' | reverse %}
+    {% for post in posts %} {% if post.category == 'software' %}
       <li>
         <a href="{{ post.url }}" class="block">
           {% if post.thumbnail %}<img src="{{ post.thumbnail }}" alt="" />{% endif %}
