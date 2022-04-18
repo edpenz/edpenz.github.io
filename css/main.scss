@@ -4,7 +4,7 @@
 
 // Our variables
 $text-family:       'Noto Sans', Helvetica, Arial, sans-serif;
-$title-family:      'Questrial', sans-serif;
+$title-family:      'Questrial-edpenz', 'Questrial', sans-serif;
 
 $base-font-size:    1rem;
 $small-font-size:   $base-font-size * 0.875;
@@ -41,15 +41,18 @@ $site-width-large:  52 * $grid-unit;
   @media screen and (min-width: $site-width-large) { @content; }
 }
 
-
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "reset",
+
+        "animation",
         "layout",
         "text",
-        "animation",
-        "landing",
+
         "about",
+        "landing",
         "paper",
-        "software"
+        "software",
+
+        "../font/_questrial.scss"
 ;
