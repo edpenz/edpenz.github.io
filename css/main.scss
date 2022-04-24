@@ -30,7 +30,7 @@ $ease-in-cubic:     cubic-bezier(0.55, 0.06, 0.68, 0.19);
 $ease-out-cubic:    cubic-bezier(0.22, 0.61, 0.36, 1);
 
 // Screen size breakpoints
-$site-width-medium: 40 * $grid-unit;
+$site-width-medium: 38 * $grid-unit;
 $site-width-large:  52 * $grid-unit;
 
 @mixin when-small() {
