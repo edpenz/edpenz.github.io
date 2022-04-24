@@ -80,10 +80,6 @@ h3 {
   font-family: $title-family;
   color: #4d4d4d;
 
-
-  &::before {
-  }
-
   &::before {
     content: '//';
 
@@ -113,7 +109,11 @@ h3 {
  * Reset link styling
  */
 a {
+  // Underline to be selectively re-enable depending on context
   text-decoration: none;
+
+  // `under` is consistent across Firefox/Chrome, but requires negative offsets to look good
+  text-underline-position: under;
 
   color: inherit;
 
@@ -124,23 +124,35 @@ a {
   &:hover {
    color: black;
   }
+}
 
+// 0.1em is really about what we want, but Chrome is too eager to round down to 1px
+$text-underline-thickness: Max(0.1em, 2px);
+
+// text-underline-offset and related properties have uneven support across
+// Firefox/Chrome. Workaround as per: https://css-irl.info/animating-underlines/
+@property --text-underline-offset {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
 }
 
 /**
  * Body text links
  */
 p a, span a {
-  box-shadow: 0 -0px $background-color inset, 0 -2px #ccc inset;
+  text-decoration: underline #ccc $text-underline-thickness;
+  --text-underline-offset: 0.0em;
+  text-underline-offset: var(--text-underline-offset);
 
-  transition: box-shadow 300ms $ease-out-cubic;
+  transition:
+    text-underline-offset 100ms $ease-out-cubic,
+    --text-underline-offset 100ms $ease-out-cubic,
+    text-decoration 100ms $ease-out-cubic;
 
-  &:focus {
-    box-shadow: 0 -1px $background-color inset, 0 -3px #888 inset;
-  }
-
-  &:hover {
-    box-shadow: 0 -1px $background-color inset, 0 -3px #000 inset;
+  &:focus, &:hover {
+    text-decoration: underline #000 $text-underline-thickness;
+    --text-underline-offset: Min(-0.1em, -2px);
   }
 }
 
@@ -149,7 +161,6 @@ p a, span a {
  */
 nav a {
   display: block;
-  text-decoration: none !important;
   opacity: 1.0;
 
   .title {
@@ -158,6 +169,14 @@ nav a {
 
     color: inherit;
 
+    text-decoration: underline #ccc0 $text-underline-thickness;
+    --text-underline-offset: 0.2em;
+    text-underline-offset: var(--text-underline-offset);
+
+    transition:
+      text-underline-offset 100ms $ease-out-cubic,
+      --text-underline-offset 100ms $ease-out-cubic,
+      text-decoration 100ms $ease-out-cubic;
   }
 
   transition: color 300ms $ease-out-cubic;
@@ -166,45 +185,10 @@ nav a {
     color: $text-color-dark;
   }
 
-  &:visited {
-  }
-
-  &:focus {
-    outline: none;
-
-      & .title::before {
-          transform: translateY(0.1em);
-          opacity: 0.5;
-      }
-  }
-
-  &:hover .title {
+  &:focus .title, &:hover .title {
       color: black;
-      text-decoration: none;
 
-      transition: color 100ms $ease-out-cubic;
-
-      &::before {
-        transform: translateY(0);
-        opacity: 1.0;
-      }
-  }
-
-  .title::before {
-    content: "";
-
-    display: inline-block;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-
-    width: 100%;
-    height: 100%;
-
-    box-shadow: inset 0px -2px 0px 0px #333;
-
-    transform: translateY(0.2em);
-    opacity: 0.0;
-    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+      text-decoration: underline #000f $text-underline-thickness;
+      --text-underline-offset: calc(-1 * #{$text-underline-thickness});
   }
 }
